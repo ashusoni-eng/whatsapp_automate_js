@@ -13,9 +13,7 @@ const { Client , LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const http = require('http');
 const formidable = require('formidable');
 const fs = require('fs');
-const cors = require("cors");
 
-http.use(cors());
 
 http.createServer(function (req, res){
     if (req.url == '/fileupload') {
