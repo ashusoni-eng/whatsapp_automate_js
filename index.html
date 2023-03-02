@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatsApp Messenger Theme Form</title>
+    <style>
+      /* WhatsApp Messenger theme styles */
+      body {
+        background-color: #ededed;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+      .form-container {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #ccc;
+        margin: 50px auto;
+        padding: 20px;
+        width: 400px;
+      }
+      h1 {
+        color: #4FCE5D;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 0px;
+        text-align: center;
+        text-shadow: 0px 1px #ccc;
+        text-transform: uppercase;
+      }
+      form {
+        margin: 0px;
+      }
+      label {
+        color: #888;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      input[type='text'],
+      input[type='file'],
+      textarea {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: inset 0px 1px 3px #ddd;
+        color: #444;
+        font-size: 14px;
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+      input[type='submit'] {
+        background-color: #4FCE5D;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0px;
+        padding: 10px;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      input[type='submit']:hover {
+        background-color: #3CBE4F;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>WhatsApp Bulk Sender (By Ashish Soni)</h1>
+      <form action="upload" method="post" enctype="multipart/form-data">
+        <label for="message">Message</label>
+        <textarea id="message" name="msg"></textarea>
+        <label for="file">File Upload</label>
+        <input type="file" id="file" name="fileupload">
+        <label for="url">URL<a href="https://margservice.in/imagelink" style="float: right;font-size: 0.8rem;" target="_blank">Get Image Link</a></label>
+        <input type="text" id="url" name="url">
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+  </body>
+</html>

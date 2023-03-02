@@ -10,12 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "express": "^4.18.2",
     "formidable": "^2.1.1",
     "fs": "^0.0.1-security",
-    "wwebjs-mongo": "^1.1.0",
-    "xlsx": "^0.18.5",
     "nodemon": "^2.0.20",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.19.4"
+    "whatsapp-web.js": "^1.19.4",
+    "xlsx": "^0.18.5"
   }
 }
