@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WhatsApp Web Theme</title>
+	<style>
+		body {
+			background-color: #e6e6e6;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			margin: 0 auto;
+			max-width: 500px;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #d9d9d9;
+			box-shadow: 0 0 10px #d9d9d9;
+			text-align: center;
+		}
+		h1 {
+			font-size: 28px;
+			margin-bottom: 20px;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		input[type="text"], textarea {
+			width: 100%;
+			padding: 10px;
+			margin: 10px 0;
+			border: 1px solid #d9d9d9;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			font-family: 'Helvetica Neue', sans-serif;
+		}
+		input[type="submit"] {
+			background-color: #25D366;
+			color: #fff;
+			font-family: 'Helvetica Neue', sans-serif;
+			font-size: 16px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>WhatsApp Web</h1>
+        <form action="sendSingle" method="post" enctype="multipart/form-data">
+			<label for="mobile">Mobile Number:</label>
+			<input type="text" name="smobile" placeholder="Enter mobile number...">
+            <label for="message">Message:</label>
+			<textarea name="smsg" rows="5" placeholder="Enter message..."></textarea>
+			<label for="url">URL:</label>
+			<input type="text"  name="surl" placeholder="Enter Image URL...">			
+			<input type="submit" value="Send Now">
+		</form>
+	</div>
+</body>
+</html>
