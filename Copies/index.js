@@ -5,14 +5,10 @@ const express = require("express");
 const fs = require("fs");
 const http = require("http");
 const formidable = require("formidable");
-const path= require("path");
 
 const port = 8080;
 
 const app = express();
-const staticPath= path.join(__dirname, "/public");
-// console.log(staticPath);
-app.use('/assets',express.static(staticPath+'/assets'));
 const server = http.createServer(app);
 const io = socketIO(server);
 
@@ -22,8 +18,7 @@ const client = new Client({
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(staticPath+'/index.html');
-  // res.sendFile("public/index.html", { root: __dirname });
+  res.sendFile("public/test.html", { root: __dirname });
 });
 
 // client.on('message',msg=>{

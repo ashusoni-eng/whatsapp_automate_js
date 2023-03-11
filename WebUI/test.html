@@ -1,0 +1,17 @@
+<div id="header"></div>
+<div id="main-content"></div>
+<div id="footer"></div>
+
+<script>
+  // Load the header.html file
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'header.html');
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      // Insert the header content into the header div
+      document.getElementById('header').innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send();
+
+</script>

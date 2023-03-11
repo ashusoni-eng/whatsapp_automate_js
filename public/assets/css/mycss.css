@@ -1,0 +1,16 @@
+.my_menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: inherit;
+    margin: 15px;
+    padding: 0;
+    text-align: inherit;
+    text-decoration: none;
+    color: inherit;
+    
+}
+.menu-item i{
+    padding-left: 25px;
+}
