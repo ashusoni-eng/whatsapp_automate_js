@@ -6,6 +6,7 @@ const fs = require("fs");
 const http = require("http");
 const formidable = require("formidable");
 const path= require("path");
+const { send } = require("process");
 
 const port = 8080;
 
@@ -79,8 +80,18 @@ app.post("/sendSingleWoMedia", (req, res) => {
   res.sendFile(__dirname + "/public/sendSingleWoMedia.html");
 });
 
+app.post("/dashboard", (req, res) => {
+  res.sendFile(__dirname + "/public/success.html");
+});
+
+// Middleware function to send success.html file
+const sendSuccessPage = (req, res, next) => {
+  res.sendFile(__dirname + "/public/success.html");
+}
+
+
 //xlsx file upload code
-app.post("/sbwm", (req, res) => {
+app.post("/sbwm", (req, res, next) => {
   //Create an instance of the form object
   const form = new formidable.IncomingForm();
   form.parse(req, (err, fields, files) => {
@@ -90,11 +101,7 @@ app.post("/sbwm", (req, res) => {
     let newpath =
       "C:/Users/Public/Public Documents" + files.fileupload.originalFilename;
     fs.rename(oldpath, newpath, async function (err) {
-      if (err) throw err;
-      // res.write("File uploaded and Message Sending in Progress.....!");
-      
-      res.sendFile(__dirname + "/public/success.html");
-
+      if (err) throw err;          
       const xlsx = require("xlsx");
       const workbook = xlsx.readFile(newpath);
       const sheetName = "Sheet1"; // replace with the name of your sheet
@@ -126,20 +133,18 @@ app.post("/sbwm", (req, res) => {
               if (isRegisteredUser) {
                 client.sendMessage(formatnum, media, { caption: sbwmmsg });
               } else {
-                console.log(num + " is not registered on whatsapp");
+                console.log(num + " is not registered on whatsapp");                
               }
             });
         }, 5000 * wait_time);
-      });
-
-      res.end();
+      });      
     });
   });
-});
+},sendSuccessPage);
 //Upload section fininshed
 
 //send message without media
-app.post("/sbwom", (req, res) => {
+app.post("/sbwom", (req, res, next) => {
    //Create an instance of the form object
    const form = new formidable.IncomingForm();
    form.parse(req, (err, fields, files) => {
@@ -184,16 +189,15 @@ app.post("/sbwom", (req, res) => {
              });
          }, 5000 * wait_time);
        });
- 
-       res.end();
      });
    });
- 
-});
+}, sendSuccessPage);
+
+
 
 
 //send single message
-app.post("/sswm", (req, res) => {
+app.post("/sswm", (req, res, next) => {
   //Create an instance of the form object
   const form = new formidable.IncomingForm();
   form.parse(req, async (err, fields, files) => {
@@ -215,12 +219,12 @@ app.post("/sswm", (req, res) => {
         console.log(snum + " is not registered on whatsapp");
       }
     });
-    res.end();
+    // res.end();
   });
-});
+},sendSuccessPage);
 
 //send message without media
-app.post("/sswom", (req, res) => {
+app.post("/sswom", (req, res, next) => {
   //Create an instance of the form object
   const form = new formidable.IncomingForm();
   form.parse(req, async (err, fields, files) => {
@@ -236,9 +240,9 @@ app.post("/sswom", (req, res) => {
         console.log(swomnum + " is not registered on whatsapp");
       }
     });
-    res.end();
+    // res.end();
   });
-});
+},sendSuccessPage);
 
 
 

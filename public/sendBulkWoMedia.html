@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Whatsapp SD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,12 +38,12 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <!-- <a href="index.html" class="menu-link"> -->
+            <form action="dashboard" method="POST">
+              <li class="menu-item">          
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <button class="my_menu-button">Dashboard</button>
-              <!-- </a> -->
-            </li>
+                <button class="my_menu-button">Dashboard</button>          
+              </li>
+            </form>
 
           <form action="sendBulkWithMedia" method="POST">
             <li class="menu-item">          
@@ -128,6 +128,13 @@
 
 					       <input type="submit" class="form-control btn-success mt-5" value="Send Message">
                             </form>
+                            <ul class="mt-2">
+                              <strong>Instruction:</strong>
+                              <li>Only use .xlsx file</li>
+                              <li>Do not add Country Code in Number(+91)</li>
+                              <li>Mobile Number should stored in first column of Excel Sheet</li>
+                              <li>No Hheader Name should be used. Numbers should start with first row</li>
+                            </ul>
                         </div>
                       </div>
                       </div>
