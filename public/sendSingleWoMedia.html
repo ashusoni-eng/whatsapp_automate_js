@@ -45,15 +45,15 @@
               <!-- </a> -->
             </li>
 
-      <form action="sendMsg" method="POST">
-        <li class="menu-item">          
-          <i class="menu-icon tf-icons bx bx-collection"></i>
-          <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
-          <button class="my_menu-button">Bulk Media Message</button>          
-        </li>
-      </form>     
+          <form action="sendBulkWithMedia" method="POST">
+            <li class="menu-item">          
+              <i class="menu-icon tf-icons bx bx-collection"></i>
+              <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
+              <button class="my_menu-button">Bulk Media Message</button>          
+            </li>
+          </form>     
 
-      <form action="sendSingleMsg" method="POST">
+      <form action="sendBulkWoMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
@@ -61,27 +61,24 @@
         </li>
       </form>     
 
-      <form action="sendMsgWoMedia" method="POST">
+      <form action="sendSingleWithMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
           <button class="my_menu-button">Single Media Message</button>         
         </li>
-      </form>    
+      </form>
 
-      <form action="sendMsgWoMedia" method="POST">
+      <form action="sendSingleWoMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
           <button class="my_menu-button">Single Text Message</button>         
         </li>
       </form>     
-  
-  
-      
+</ul>
+</aside>
 
-          </ul>
-        </aside>
         <!-- / Menu -->
         <!-- Layout container -->
         <div class="layout-page">
@@ -90,7 +87,7 @@
           <nav
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" >
             
-				<h5 class="text-primary mt-3" >Send Bulk Message with Media<h5>
+				<h5 class="text-primary mt-3" >Send Single Message Without Media<h5>
 			
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
             </div>
@@ -109,10 +106,9 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body" style="height:  80vh; width: 35vw">
-                          	<form class="form-group">
+                          	<form class="form-group" action="sswom" method="POST">
                           		<label for="message">Enter Your Message</label>
-	                            <textarea id="message" name="msg" class="form-control mt-2" placeholder="Enter Your Message" value=" " style="height: 60vh">
-	                            	
+	                            <textarea name="swommsg" type="text" rows="5" placeholder="Enter message..." class="form-control mt-2" style="height: 60vh">                           	
 	                            </textarea>
                             
                         </div>
@@ -127,13 +123,10 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body" style="height:  80vh;width: 35vw">
-                          <label for="imgUrl">Enter image URL<span style="margin-left: 11rem"><a href="https://margservice.in/imagelink">Get Image Link</a></span></label>
-                          <input type="text" name="" class="form-control mt-2" placeholder="Enter image URL" id="url" name="url">
+                            <label for="number">Enter Number Without Country Code</label>
+                          <input type="number" name="swomnum" class="form-control mt-2" placeholder="Enter Mobile Number">
 
-                          <label for="conactfile" class="mt-4">Select Contact File (Only .xlsx)</label>
-                          <input type="file"  id="file" name="fileupload" class="form-control mt-2">
-
-					       <input type="submit" class="form-control btn-success mt-5" value="Send Message">
+					                   <input type="submit" class="form-control btn-success mt-5" value="Send Message">  
                             </form>
                         </div>
                       </div>
@@ -192,7 +185,6 @@
 
     <!-- Page JS -->
     <script src="./assets/js/dashboards-analytics.js"></script>
-
 
   </body>
 </html>

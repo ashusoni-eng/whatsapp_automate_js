@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Whatsapp Bulk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
@@ -45,45 +45,50 @@
               <!-- </a> -->
             </li>
 
-      <form action="sendMsg" method="POST">
+          <form action="sendBulkWithMedia" method="POST">
+            <li class="menu-item">          
+              <i class="menu-icon tf-icons bx bx-collection"></i>
+              <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
+              <button class="my_menu-button">Bulk Media Message</button>          
+            </li>
+          </form>     
+
+      <form action="sendBulkWoMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
-          <button class="my_menu-button">Bulk Media Message</button>          
+          <button class="my_menu-button">Bulk Text Message</button>          
         </li>
       </form>     
 
-      <form action="sendSingleMsg" method="POST">
+      <form action="sendSingleWithMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
-          <button class="my_menu-button">Single Media Message</button>          
+          <button class="my_menu-button">Single Media Message</button>         
         </li>
-      </form>     
+      </form>
 
-      <form action="sendMsgWoMedia" method="POST">
+      <form action="sendSingleWoMedia" method="POST">
         <li class="menu-item">          
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <!-- <div data-i18n="Basic">Bulk Media Message</div> -->
           <button class="my_menu-button">Single Text Message</button>         
         </li>
       </form>     
-  
-  
-      
-
-          </ul>
-        </aside>
+</ul>
+</aside>
         <!-- / Menu -->
         <!-- Layout container -->
+
         <div class="layout-page">
           <!-- Navbar -->
 
           <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"
-          >
-
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" >
+            
+				<h5 class="text-primary mt-3" >Send Bulk Message with Media<h5>
+			
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
             </div>
           </nav>
@@ -100,9 +105,13 @@
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
-                        <div class="card-body" style="height:  80vh">
-                          <h5 class="card-title text-primary">Whatsapp Web QR<h5>
-                            <img src="" alt="QR CODE" id="qrcode" style="width:30vw">
+                        <div class="card-body" style="height:  80vh; width: 35vw">
+                          	<form class="form-group" action="sbwm" enctype="multipart/form-data" method="POST">
+                          		<label for="message">Enter Your Message</label>
+	                            <textarea id="message" name="sbwmmsg" class="form-control mt-2" placeholder="Enter Your Message" value=" " style="height: 60vh">
+	                            	
+	                            </textarea>
+                            
                         </div>
                       </div>
                       </div>
@@ -114,9 +123,15 @@
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
-                        <div class="card-body" style="height:  80vh">
-                          <h5 class="card-title text-primary">Logs</h5>
-                            <ul class="logs"></ul>
+                        <div class="card-body" style="height:  80vh;width: 35vw">
+                          <label for="imgUrl">Enter image URL<span style="margin-left: 11rem"><a href="https://margservice.in/imagelink">Get Image Link</a></span></label>
+                          <input type="text" name="sbwmurl" class="form-control mt-2" placeholder="Enter image URL" id="url" name="url">
+
+                          <label for="conactfile" class="mt-4">Select Contact File (Only .xlsx)</label>
+                          <input type="file"  id="file" name="fileupload" class="form-control mt-2">
+
+					       <input type="submit" class="form-control btn-success mt-5" value="Send Message">
+                            </form>
                         </div>
                       </div>
                       </div>
@@ -157,7 +172,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js" integrity="sha512-AI5A3zIoeRSEEX9z3Vyir8NqSMC1pY7r5h2cE+9J6FLsoEmSSGLFaqMQw8SWvoONXogkfFrkQiJfLeHLz3+HOg==" crossorigin="anonymous"></script>
   <script src="./assets/vendor/libs/popper/popper.js"></script>
     <script src="./assets/vendor/js/bootstrap.js"></script>
@@ -175,27 +190,18 @@
     <!-- Page JS -->
     <script src="./assets/js/dashboards-analytics.js"></script>
 
-  <script>
-        $(document).ready(function(){
-            var socket= io.connect('http://localhost:8080', {path:'/socket.io'});
 
-            socket.on('message', function(msg){
-                $('.logs').append($('<li>').text(msg));
-            });
+    <!-- my js -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous"></script>
+    <script src="./assets/js/myjs.js"></script>
 
-            socket.on('qr', function(src){
-                $('#qrcode').attr('src', src);
-            })
+    <script>
+  $(function(){
+    $('#header').load('header.html');
+  })
+</script> 
 
-            socket.on('ready', function(src){
-                $('#qrcode').attr('src','https://margservice.in/imagelink/upload/64037f4264354.jpg');
-            })
 
-            socket.on('authenticated', function(src){
-                $('#qrcode').attr('src','https://margservice.in/imagelink/upload/64037f4264354.jpg');
-            })
-        });
-    </script>
 
   </body>
 </html>

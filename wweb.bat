@@ -1,3 +1,3 @@
-cd G:\Project\Whatsapp_auto_js
+cd E:\Project\Whatsapp\whatsapp_automate_js
 start nodemon index.js
 start http://localhost:8080
